@@ -357,7 +357,7 @@
                 if (success) {
                     Users.disableIgnoreRadius();
 
-                    Agent.isAvatar = true;
+                    Agent.isAvatar = false;
                     Avatar.position = position;
                     Avatar.orientation = orientation;
 
