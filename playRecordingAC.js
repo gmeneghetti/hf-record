@@ -364,7 +364,7 @@
                     Recording.setPlayerUseDisplayName(true);
                     Recording.setPlayerUseHeadModel(false);
                     Recording.setPlayerUseAttachments(true);
-                    Recording.setPlayerLoop(true);
+                    Recording.setPlayerLoop(false);  // True for loop
                     Recording.setPlayerUseSkeletonModel(true);
 
                     Recording.setPlayerTime(0.0);
