@@ -1,0 +1,9 @@
+
+User is around, and probably did a left hand
+[09/26 15:12:07] [DEBUG] [hifi.scriptengine.script] RECORD: Heartbeat onMessageReceived. channel=io.highfidelity.makeUserConnection,sender="{ffeed9c4-1538-4595-89aa-3f1ff9679485}",message="{\"key\":\"waiting\",\"hand\":\"LeftHand\",\"isLoggedIn\":true}"
+[09/26 15:12:07] [DEBUG] [hifi.scriptengine.script] makeUserConnection <inactive> [undefined/-1] {} [undefined/-1] "get hand LeftHand for avatar {ffeed9c4-1538-4595-89aa-3f1ff9679485}"
+[09/26 15:12:07] [DEBUG] [hifi.scriptengine.script] makeUserConnection <inactive> [undefined/-1] {} [undefined/-1] "found joint LeftHandMiddle1 (57)"
+[09/26 15:12:07] [DEBUG] [hifi.scriptengine.script] RECORD: Heartbeat onMessageReceived. channel=io.highfidelity.makeUserConnection,sender="{ffeed9c4-1538-4595-89aa-3f1ff9679485}",message="{\"key\":\"done\",\"isLoggedIn\":true}"
+
+
+-----
