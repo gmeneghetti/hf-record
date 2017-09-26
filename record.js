@@ -351,7 +351,7 @@
         function onMessageReceived(channel, message, sender) {
             // Heartbeat from AC script.
             var index;
-            log ("Heartbeat onMessageReceived. channel=" + channel + ",sender=" + JSON.stringify(sender)+ ",message="+JSON.stringify(message) );			
+            //log ("Heartbeat_onMessageReceived: channel=" + channel + ",sender=" + JSON.stringify(sender)+ ",message="+JSON.stringify(message) );			
 
             if (channel !== HIFI_RECORDER_CHANNEL) {
                 return;
@@ -415,7 +415,9 @@
             tearDown: tearDown
         };
     }());
-
+	
+	// END Player
+	
     Dialog = (function () {
         var isFinishOnOpen = false,
             countdownNumber = "",
@@ -534,6 +536,7 @@
                     if (recording) {
                         log("Load recording " + recording);
                         UserActivityLogger.logAction("record_load_recording", logDetails());
+						log ("START_PLAYBACK: recording=" + JSON.stringify(recording) + ", MyAvatar.position"+ JSON.stringify(MyAvatar.position) + ", MyAvatar.orientation" + JSON.stringify(MyAvatar.orientation));
                         Player.playRecording("atp:" + recording, MyAvatar.position, MyAvatar.orientation);
                     }
                     break;
@@ -579,6 +582,8 @@
         };
     }());
 
+	// END Dialog
+	
     function onTabletScreenChanged(type, url) {
         // Opened/closed dialog in tablet or window.
         var RECORD_URL = "/html/record.html";
@@ -640,6 +645,7 @@
         if (!tablet) {
             return;
         }
+		log ("DEBUG GM: SETUP ===========================================================================");
 
         // Tablet/toolbar button.
         button = tablet.addButton({
