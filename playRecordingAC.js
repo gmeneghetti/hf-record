@@ -301,6 +301,7 @@
         function play(user, recording, position, orientation) {
             var errorMessage;
 
+			log("DEBUG: RECORDING GM play");
             if (autoPlayTimer) {  // Cancel auto-play.
                 // FIXME: Once in a while Script.clearTimeout() fails.
                 // [DEBUG] [hifi.scriptengine] [3748] [agent] stopTimer -- not in _timerFunctionMap QObject(0x0)
