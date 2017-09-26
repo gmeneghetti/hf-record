@@ -351,7 +351,7 @@
         function onMessageReceived(channel, message, sender) {
             // Heartbeat from AC script.
             var index;
-			
+            log ("Heartbeat onMessageReceived. channel=" + channel + ",sender=" + JSON.stringify(sender)+ ",message="+JSON.stringify(message) );			
 
             if (channel !== HIFI_RECORDER_CHANNEL) {
                 return;
@@ -374,13 +374,13 @@
                 playerTimestamps[index] = Date.now();
                 Dialog.updatePlayerDetails(playerIsPlayings, playerRecordings, playerIDs);
             }
-			
+/*			
 			log (index + "GIO log START");
 			log (index + " Command = " + message.command );
 			log (index + "Player position = " + message.position );	
 			log (message);
 			log (index + " GIO log START");
-			
+*/		
         }
 
         function reset() {
@@ -500,7 +500,8 @@
                 recording;
 
             message = JSON.parse(data);
-            if (message.type === EVENT_BRIDGE_TYPE) {
+			log ("onWebEventReceived: message.action=" + message.action + ", value=" + JSON.stringify(message.value));
+            if (message.type === EVENT_BRIDGE_TYPE) {				
                 switch (message.action) {
                 case BODY_LOADED_ACTION:
                     // Dialog's ready; initialize its state.
