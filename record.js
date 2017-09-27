@@ -331,14 +331,22 @@
                     + recording.slice(4) + "!");  // Remove leading "atp:" from recording.
                 return;
             }
-
-            Messages.sendMessage(HIFI_PLAYER_CHANNEL, JSON.stringify({
+			playerIsPlayings[index] = "Will be filled soon by update message from server";
+			log ("Sending message:" + JSON.stringify({
+							player: playerIDs[index],
+							command: PLAYER_COMMAND_PLAY,
+							recording: recording,
+							position: position,
+							orientation: orientation
+						}));			
+			
+            /*Messages.sendMessage(HIFI_PLAYER_CHANNEL, JSON.stringify({
                 player: playerIDs[index],
                 command: PLAYER_COMMAND_PLAY,
                 recording: recording,
                 position: position,
                 orientation: orientation
-            }));
+            }));*/
         }
 
         function stopPlayingRecording(playerID) {
@@ -537,7 +545,56 @@
                         log("Load recording " + recording);
                         UserActivityLogger.logAction("record_load_recording", logDetails());
 						log ("START_PLAYBACK: recording=" + JSON.stringify(recording) + ", MyAvatar.position"+ JSON.stringify(MyAvatar.position) + ", MyAvatar.orientation" + JSON.stringify(MyAvatar.orientation));
-                        Player.playRecording("atp:" + recording, MyAvatar.position, MyAvatar.orientation);
+                        //Player.playRecording("atp:" + recording, MyAvatar.position, MyAvatar.orientation);
+						
+						// run multiple instances of: recording="/recordings/20170924-111427.hfr", 
+						//  MyAvatar.position{"x":103.92483520507812,"y":-16.365671157836914,"z":43.27119445800781}, 
+						//  MyAvatar.orientation{"x":0,"y":0.2675834000110626,"z":0,"w":0.9635347127914429}
+						var newPosition1 = JSON.parse('{"x":105,"y":-15,"z":43.3}');
+						var newPosition2 = JSON.parse('{"x":106,"y":-16,"z":43.3}');
+						var newPosition3 = JSON.parse('{"x":107,"y":-17,"z":43.3}');
+						log ("newPosition JSON= " + JSON.stringify(newPosition1));
+						log ("newPosition JSON= " + JSON.stringify(newPosition2));
+						log ("newPosition JSON= " + JSON.stringify(newPosition3));
+						Script.setTimeout (Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation),200);
+						Script.setTimeout (Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation),400);
+						Script.setTimeout (Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation),600);
+					
+					  // Sending message:{"player":"{d23e64a8-9597-434d-ba6a-8f91561ff8c1}","command":"play","recording":"atp:/recordings/20170924-111427.hfr","position":{"x":105,"y":-15,"z":43.3},"orientation":{"x":0,"y":0.3735499978065491,"z":0,"w":0.9276100397109985}}
+					
+						/*
+						log ("Sending message 1...");
+						Messages.sendMessage("Test-do-nothing", JSON.stringify({
+							player: "testPlayerid-not-exist",
+							command: 'Test command 1',
+							recording: recording,
+							position: newPosition1,
+							orientation: MyAvatar.orientation
+						}));
+						log ("message 1 sent.");
+			
+
+						log ("Sending message 2...");
+						Messages.sendMessage("Test-do-nothing", JSON.stringify({
+							player: "testPlayerid-not-exist",
+							command: 'Test command 2',
+							recording: recording,
+							position: newPosition1,
+							orientation: MyAvatar.orientation
+						}));
+						log ("message 2 sent.");
+
+
+						log ("Sending message 3...");
+						Messages.sendMessage("Test-do-nothing", JSON.stringify({
+							player: "testPlayerid-not-exist",
+							command: 'Test command 3',
+							recording: recording,
+							position: newPosition1,
+							orientation: MyAvatar.orientation
+						}));
+						log ("message 3 sent.");						
+						*/
                     }
                     break;
                 case START_RECORDING_ACTION:
