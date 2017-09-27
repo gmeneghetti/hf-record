@@ -340,13 +340,13 @@
 							orientation: orientation
 						}));			
 			
-            /*Messages.sendMessage(HIFI_PLAYER_CHANNEL, JSON.stringify({
+            Messages.sendMessage(HIFI_PLAYER_CHANNEL, JSON.stringify({
                 player: playerIDs[index],
                 command: PLAYER_COMMAND_PLAY,
                 recording: recording,
                 position: position,
                 orientation: orientation
-            }));*/
+            }));
         }
 
         function stopPlayingRecording(playerID) {
