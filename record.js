@@ -551,8 +551,8 @@
 						//  MyAvatar.position{"x":103.92483520507812,"y":-16.365671157836914,"z":43.27119445800781}, 
 						//  MyAvatar.orientation{"x":0,"y":0.2675834000110626,"z":0,"w":0.9635347127914429}
 						var newPosition1 = JSON.parse('{"x":105,"y":-15,"z":43.3}');
-						var newPosition2 = JSON.parse('{"x":106,"y":-16,"z":43.3}');
-						var newPosition3 = JSON.parse('{"x":107,"y":-17,"z":43.3}');
+						var newPosition2 = JSON.parse('{"x":106,"y":-15,"z":43.3}');
+						var newPosition3 = JSON.parse('{"x":107,"y":-15,"z":43.3}');
 						log ("newPosition JSON= " + JSON.stringify(newPosition1));
 						log ("newPosition JSON= " + JSON.stringify(newPosition2));
 						log ("newPosition JSON= " + JSON.stringify(newPosition3));
