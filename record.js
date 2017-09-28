@@ -331,7 +331,7 @@
                     + recording.slice(4) + "!");  // Remove leading "atp:" from recording.
                 return;
             }
-			playerIsPlayings[index] = "Will be filled soon by update message from server";
+			//playerIsPlayings[index] = "Will be filled soon by update message from server";
 			log ("Sending message:" + JSON.stringify({
 							player: playerIDs[index],
 							command: PLAYER_COMMAND_PLAY,
@@ -340,13 +340,13 @@
 							orientation: orientation
 						}));			
 			
-            /*Messages.sendMessage(HIFI_PLAYER_CHANNEL, JSON.stringify({
+            Messages.sendMessage(HIFI_PLAYER_CHANNEL, JSON.stringify({
                 player: playerIDs[index],
                 command: PLAYER_COMMAND_PLAY,
                 recording: recording,
                 position: position,
                 orientation: orientation
-            }));*/
+            }));
         }
 
         function stopPlayingRecording(playerID) {
@@ -556,9 +556,16 @@
 						log ("newPosition JSON= " + JSON.stringify(newPosition1));
 						log ("newPosition JSON= " + JSON.stringify(newPosition2));
 						log ("newPosition JSON= " + JSON.stringify(newPosition3));
-						Script.setTimeout (Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation),200);
-						Script.setTimeout (Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation),400);
-						Script.setTimeout (Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation),600);
+						//Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation);
+						Script.setTimeout (function () {
+							Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation);
+						}, 1000);						Script.setTimeout (function () {
+							Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation);
+						}, 4000);						Script.setTimeout (function () {
+							Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation);
+						}, 7000);
+						//Script.setTimeout (Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation),400);
+						//Script.setTimeout (Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation),600);
 					
 					  // Sending message:{"player":"{d23e64a8-9597-434d-ba6a-8f91561ff8c1}","command":"play","recording":"atp:/recordings/20170924-111427.hfr","position":{"x":105,"y":-15,"z":43.3},"orientation":{"x":0,"y":0.3735499978065491,"z":0,"w":0.9276100397109985}}
 					
