@@ -559,9 +559,11 @@
 						//Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation);
 						Script.setTimeout (function () {
 							Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation);
-						}, 1000);						Script.setTimeout (function () {
+						}, 1000);						
+						Script.setTimeout (function () {
 							Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation);
-						}, 4000);						Script.setTimeout (function () {
+						}, 4000);						
+						Script.setTimeout (function () {
 							Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation);
 						}, 7000);
 						//Script.setTimeout (Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation),400);
