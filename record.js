@@ -541,6 +541,7 @@
                 case LOAD_RECORDING_ACTION:
                     // User wants to select an ATP recording to play.
                     recording = Window.browseAssets("Select Recording to Play", "recordings", "*.hfr");
+					log ("User selected recording from Window.browseAssets=" + recording);
                     if (recording) {
                         log("Load recording " + recording);
                         UserActivityLogger.logAction("record_load_recording", logDetails());
@@ -550,22 +551,26 @@
 						// run multiple instances of: recording="/recordings/20170924-111427.hfr", 
 						//  MyAvatar.position{"x":103.92483520507812,"y":-16.365671157836914,"z":43.27119445800781}, 
 						//  MyAvatar.orientation{"x":0,"y":0.2675834000110626,"z":0,"w":0.9635347127914429}
-						var newPosition1 = JSON.parse('{"x":105,"y":-15,"z":43.3}');
-						var newPosition2 = JSON.parse('{"x":106,"y":-15,"z":43.3}');
-						var newPosition3 = JSON.parse('{"x":107,"y":-15,"z":43.3}');
+						var newPosition1 = JSON.parse('{"x":92,"y":-16.36,"z":43.27}');
+						var newPosition2 = JSON.parse('{"x":100,"y":-16.36,"z":43.27}');
+						var newPosition3 = JSON.parse('{"x":106,"y":-16.36,"z":43.27}');
+						var newOrientationFixed = JSON.parse('{"x":0,"y":0.2675834000110626,"z":0,"w":0.9635347127914429}');
+						var newRecording1 = "/recordings/20170924-180249.hfr";  // Ms Spelling
+						var newRecording2 = "/recordings/20170929-115000.hfr";  // Lucia
+						var newRecording3 = "/recordings/20170924-182014.hfr";  // Kid
 						log ("newPosition JSON= " + JSON.stringify(newPosition1));
 						log ("newPosition JSON= " + JSON.stringify(newPosition2));
 						log ("newPosition JSON= " + JSON.stringify(newPosition3));
 						//Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation);
 						Script.setTimeout (function () {
-							Player.playRecording("atp:" + recording, newPosition1, MyAvatar.orientation);
+							Player.playRecording("atp:" + newRecording1, newPosition1, newOrientationFixed);
 						}, 1000);						
 						Script.setTimeout (function () {
-							Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation);
+							Player.playRecording("atp:" + newRecording2, newPosition2, newOrientationFixed);
 						}, 4000);						
 						Script.setTimeout (function () {
-							Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation);
-						}, 7000);
+							Player.playRecording("atp:" + newRecording3, newPosition3, newOrientationFixed);
+						}, 10000);
 						//Script.setTimeout (Player.playRecording("atp:" + recording, newPosition2, MyAvatar.orientation),400);
 						//Script.setTimeout (Player.playRecording("atp:" + recording, newPosition3, MyAvatar.orientation),600);
 					
