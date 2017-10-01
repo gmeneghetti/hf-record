@@ -177,6 +177,10 @@
                 // Delay start so that start beep is not included in recorded sound.
                 startPosition = MyAvatar.position;
                 startOrientation = MyAvatar.orientation;
+				log ("Start recording position: " + JSON.stringify({
+                        position: MyAvatar.position,
+                        orientation: MyAvatar.orientation
+						});
                 Recording.startRecording();
                 RecordingIndicator.show();
             }, START_RECORDING_SOUND_DURATION);
