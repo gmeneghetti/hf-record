@@ -361,11 +361,11 @@
                     Avatar.position = position;
                     Avatar.orientation = orientation;
 
-                    Recording.setPlayFromCurrentLocation(true);
+                    Recording.setPlayFromCurrentLocation(true); // Originally it is true
                     Recording.setPlayerUseDisplayName(true);
                     Recording.setPlayerUseHeadModel(false);
                     Recording.setPlayerUseAttachments(true);
-                    Recording.setPlayerLoop(false);  // True for loop
+                    Recording.setPlayerLoop(true);  // Originally it is true
                     Recording.setPlayerUseSkeletonModel(true);
 
                     Recording.setPlayerTime(0.0);
