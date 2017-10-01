@@ -180,7 +180,7 @@
 				log ("Start recording position: " + JSON.stringify({
                         position: MyAvatar.position,
                         orientation: MyAvatar.orientation
-						});
+						}));
                 Recording.startRecording();
                 RecordingIndicator.show();
             }, START_RECORDING_SOUND_DURATION);
